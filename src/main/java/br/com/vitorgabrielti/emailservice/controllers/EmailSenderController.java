@@ -26,7 +26,7 @@ public class EmailSenderController {
     public ResponseEntity<String> sendEmail(@RequestBody EmailRequest request){
         try {
             this.emailSenderService.sendEmail(request.to(), request.subject(), request.body());
-            return ResponseEntity.ok("email send sucessfully");
+            return ResponseEntity.ok("email sent sucessfully");
         } catch (EmailServiceException ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error while sending email");
         }
